@@ -2,6 +2,7 @@ import com.microsoft.playwright.APIRequest;
 import com.microsoft.playwright.APIRequestContext;
 import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.Playwright;
+import junit.framework.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.lang.foreign.PaddingLayout;
@@ -19,5 +20,13 @@ public class gorestPlaywrightTest
 
         int statusCode = apiResponse.status();
         System.out.println("Status Code: " + statusCode);
+        Assert.assertEquals(statusCode, 200);
+
+        String statusResponseText = apiResponse.statusText();
+        System.out.println(statusResponseText);
+
+        System.out.println(apiResponse.body().toString());
+
+
     }
 }
